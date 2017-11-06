@@ -1,4 +1,4 @@
-package com.restfully.shop;
+package com.restfully.zoo.test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
