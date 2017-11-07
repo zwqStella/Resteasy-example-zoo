@@ -3,9 +3,19 @@ package com.restfully.zoo.domain;
 public class Animal {
    private String name;
    private String kind;
+   private int id;
    
+   
+   
+   
+   public Animal(String name, String kind) {
+	   this.id = -1;
+	   this.name = name;
+	   this.kind = kind;
+   }
+
    public String getName() {
-      return name;
+	   return name;
    }
 
    public void setName(String name) {
@@ -16,7 +26,12 @@ public class Animal {
 	   return kind;
    }
 
-   public void setKind(String kind) {
-	   this.kind = kind;
+   public int getId() {
+	   return id;
    }
+
+   public void setId(int id) {
+	   this.id = id;
+   }
+   
 }
