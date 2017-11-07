@@ -1,5 +1,7 @@
 package com.restfully.zoo.test;
 
+import static org.junit.Assert.assertEquals;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
@@ -7,7 +9,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class InjectionTest {
+public class AnimalTest {
 
 	private static Client client;
 
@@ -22,8 +24,9 @@ public class InjectionTest {
 	}
 	
 	@Test
-	public void testAnimals() throws Exception {
+	public void testHello() throws Exception {
 		String hello = client.target("http://localhost:8080/zoo/animals/hello").request().get(String.class);
-	    System.out.println(hello);
+		System.out.println(hello);
+		assertEquals("welcome",hello);
 	}
 }
