@@ -1,5 +1,7 @@
 package com.restfully.zoo.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -49,7 +51,7 @@ public class AnimalResource {
 	}
 	
 	@GET
-	@Path("{id}")
+	@Path("{id : \\d+}")
 	@Produces("application/json")
 	public Animal getAnimal(@PathParam("id")int id) {
 		Animal animal = animals.get(id);
@@ -60,12 +62,24 @@ public class AnimalResource {
 		}
 	}
 	
+	@GET
+	@Path("all")
+	@Produces("application/json")
+	public List<Animal> getAll() {
+		List<Animal> all = new ArrayList<Animal>();
+		for(int id : animals.keySet()) {
+			all.add(animals.get(id));
+		}
+		return all;
+	}
+	
 	@DELETE
 	@Path("delete")
 	@Produces("application/json")
 	public Animal deleteAnimal(@QueryParam("id") int id) {
 		Animal animal = animals.get(id);
 		if(animal != null) {
+			animals.remove(id);
 			return animal;
 		}else {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);

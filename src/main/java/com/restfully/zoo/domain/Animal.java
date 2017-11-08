@@ -5,9 +5,10 @@ public class Animal {
    private String kind;
    private int id;
    
-   
-   
-   
+   public Animal() {
+	super();
+   }
+
    public Animal(String name, String kind) {
 	   this.id = -1;
 	   this.name = name;
@@ -28,6 +29,10 @@ public class Animal {
 
    public int getId() {
 	   return id;
+   }
+
+   public void setKind(String kind) {
+	this.kind = kind;
    }
 
    public void setId(int id) {
