@@ -8,6 +8,7 @@ import java.util.Set;
 @ApplicationPath("/")
 public class ManageApplication extends Application {
    private Set<Object> singletons = new HashSet<Object>();
+   private Set<Class<?>> empty = new HashSet<Class<?>>();
 
    public ManageApplication() {
       singletons.add(new AnimalResource());
@@ -20,7 +21,7 @@ public class ManageApplication extends Application {
 
    @Override
    public Set<Class<?>> getClasses() {
-	   return super.getClasses();
+	   return empty;
    }
    
 }
