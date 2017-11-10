@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-   <modelVersion>4.0.0</modelVersion>
    
+   <modelVersion>4.0.0</modelVersion>
    <groupId>org.jboss.resteasy</groupId>
-   <artifactId>resteasy-example-zoo</artifactId>
-   <version>2.0</version>
+   <artifactId>katacoda_example_zoo</artifactId>
+   <version>1.0</version>
    <packaging>war</packaging>
    <name>zoo</name>
    <description />
@@ -13,28 +12,33 @@
    <properties>
       <maven.compiler.source>1.8</maven.compiler.source>
       <maven.compiler.target>1.8</maven.compiler.target>
+      <resteasy.version>3.1.4.Final</resteasy.version>
    </properties>
    
    <dependencies>
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
          <artifactId>resteasy-jaxrs</artifactId>
-         <version>3.1.4.Final</version>
+         <version>${resteasy.version}</version>
+         <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
          <artifactId>resteasy-servlet-initializer</artifactId>
-         <version>3.1.4.Final</version>
+         <version>${resteasy.version}</version>
+         <scope>provided</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
          <artifactId>resteasy-client</artifactId>
-         <version>3.1.4.Final</version>
+         <version>${resteasy.version}</version>
+         <scope>test</scope>
       </dependency>
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
          <artifactId>resteasy-jackson-provider</artifactId>
-         <version>3.1.4.Final</version>
+         <version>${resteasy.version}</version>
+         <scope>test</scope>
       </dependency>
    </dependencies>
    
@@ -46,20 +50,21 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>1.6.0</version>
             <configuration>
+               <classpathScope>test</classpathScope>
                <executable>java</executable>
                <arguments>
                   <argument>-classpath</argument>
                   <classpath />
-                  <argument>com.jboss.resteasy.zoo.client.Main</argument>
+                  <argument>org.jboss.resteasy.katacoda_example_zoo.client.AnimalClient</argument>
                </arguments>
             </configuration>
          </plugin>
          <plugin>
-        	<artifactId>maven-war-plugin</artifactId>
-        	<version>3.2.0</version>
-        	<configuration>
-          		<packagingExcludes>WEB-INF/lib/,/WEB-INF/classes/com/jboss/resteasy/zoo/client/</packagingExcludes>
-        	</configuration>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+               <packagingExcludes>WEB-INF/lib/,/WEB-INF/classes/org/jboss/resteasy/katacoda_example_zoo/client/</packagingExcludes>
+            </configuration>
          </plugin>
       </plugins>
    </build>

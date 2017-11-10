@@ -1,4 +1,4 @@
-package com.jboss.resteasy.zoo.server.services;
+package org.jboss.resteasy.katacoda_example_zoo.server.services;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

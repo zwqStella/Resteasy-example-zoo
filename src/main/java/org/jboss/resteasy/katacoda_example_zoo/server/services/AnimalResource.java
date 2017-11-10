@@ -1,4 +1,4 @@
-package com.jboss.resteasy.zoo.server.services;
+package org.jboss.resteasy.katacoda_example_zoo.server.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-import com.jboss.resteasy.zoo.server.domain.Animal;
+import org.jboss.resteasy.katacoda_example_zoo.server.domain.Animal;
 
 @Path("/animals")
 public class AnimalResource {

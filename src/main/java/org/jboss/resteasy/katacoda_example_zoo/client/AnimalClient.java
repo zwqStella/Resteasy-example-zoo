@@ -1,4 +1,4 @@
-package com.jboss.resteasy.zoo.client;
+package org.jboss.resteasy.katacoda_example_zoo.client;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -12,9 +12,9 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import com.jboss.resteasy.zoo.server.domain.Animal;
+import org.jboss.resteasy.katacoda_example_zoo.server.domain.Animal;
 
-public class Main {
+public class AnimalClient {
 	
 	private static Client client;
 	private static Scanner input;

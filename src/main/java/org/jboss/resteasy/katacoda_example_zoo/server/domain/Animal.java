@@ -1,4 +1,4 @@
-package com.jboss.resteasy.zoo.server.domain;
+package org.jboss.resteasy.katacoda_example_zoo.server.domain;
 
 public class Animal {
    private String name;
