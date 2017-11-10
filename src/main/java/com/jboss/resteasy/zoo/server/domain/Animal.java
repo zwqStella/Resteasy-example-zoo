@@ -1,4 +1,4 @@
-package com.restfully.zoo.domain;
+package com.jboss.resteasy.zoo.server.domain;
 
 public class Animal {
    private String name;

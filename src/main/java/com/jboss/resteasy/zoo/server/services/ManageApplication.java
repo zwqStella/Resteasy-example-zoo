@@ -1,4 +1,4 @@
-package com.restfully.zoo.services;
+package com.jboss.resteasy.zoo.server.services;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
