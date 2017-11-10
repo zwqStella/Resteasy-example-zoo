@@ -35,7 +35,6 @@ public class AnimalResource {
 	}
    
 	@POST
-	@Path("add")
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Animal addAnimal(Animal animal) {
@@ -74,7 +73,6 @@ public class AnimalResource {
 	}
 	
 	@DELETE
-	@Path("delete")
 	@Produces("application/json")
 	public Animal deleteAnimal(@QueryParam("id") int id) {
 		Animal animal = animals.get(id);
@@ -87,7 +85,6 @@ public class AnimalResource {
 	}
 	
 	@PUT
-	@Path("edit")
 	@Produces("application/json")
 	public Animal modAnimal(@MatrixParam("id") int id, @MatrixParam("name") String name) {
 		Animal animal = animals.get(id);
