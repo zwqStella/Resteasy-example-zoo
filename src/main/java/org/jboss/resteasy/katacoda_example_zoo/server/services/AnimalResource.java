@@ -1,6 +1,7 @@
 package org.jboss.resteasy.katacoda_example_zoo.server.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -64,12 +65,8 @@ public class AnimalResource {
 	@GET
 	@Path("all")
 	@Produces("application/json")
-	public List<Animal> getAll() {
-		List<Animal> all = new ArrayList<Animal>();
-		for(int id : animals.keySet()) {
-			all.add(animals.get(id));
-		}
-		return all;
+	public Collection<Animal> getAll() {
+		return animals.values();
 	}
 	
 	@DELETE
@@ -84,6 +81,19 @@ public class AnimalResource {
 		}
 	}
 	
+    @PUT
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Animal replaceAnimal(Animal animal) {
+        int id = animal.getId();
+        if(id > 0) {
+            animals.put(id, animal);
+            return animal;
+        }else {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+    }
+	
 	@PUT
 	@Produces("application/json")
 	public Animal modAnimal(@MatrixParam("id") int id, @MatrixParam("name") String name) {
@@ -95,4 +105,5 @@ public class AnimalResource {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
 	}
+	
 }

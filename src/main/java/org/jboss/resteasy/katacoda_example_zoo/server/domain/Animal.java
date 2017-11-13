@@ -14,6 +14,13 @@ public class Animal {
 	   this.name = name;
 	   this.kind = kind;
    }
+   
+   public Animal(int id, String name, String kind) {
+    super();
+    this.name = name;
+    this.kind = kind;
+    this.id = id;
+   }
 
    public String getName() {
 	   return name;
@@ -37,6 +44,12 @@ public class Animal {
 
    public void setId(int id) {
 	   this.id = id;
+   }
+   
+   @Override
+   public String toString() {
+       return "Animal ID: "+this.id 
+               + ", name=" + this.name + ", kind=" + this.kind;
    }
    
 }

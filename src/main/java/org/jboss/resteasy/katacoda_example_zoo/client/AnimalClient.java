@@ -21,7 +21,6 @@ public class AnimalClient {
 	
 	public static void main(String args[]) {
 		client = ClientBuilder.newClient();
-		input = new Scanner(System.in);
 		while(true) {
 			System.out.println();
 			System.out.println("Menu: ");
@@ -31,8 +30,10 @@ public class AnimalClient {
 			System.out.println("2. Query Animal");
 			System.out.println("3. Delete Animal");
 			System.out.println("4. Modify Animal name");
-			System.out.println("Enter any other key to quit...");
+			System.out.println("5. Replace or Add Animal on Certain ID");
+			System.out.println("Enter any other number to quit...");
 			try {
+			    input = new Scanner(System.in);
 				int choice = input.nextInt();
 				switch(choice) {
 				case 0:
@@ -48,15 +49,19 @@ public class AnimalClient {
 					delete();
 					break;
 				case 4:
-					put();
+					rename();
 					break;
+				case 5:
+				    replace();
+                    break;
 				default:
 					System.out.println("Quit... ");
 					return;
 				}
 			}catch(InputMismatchException e) {
-				System.out.println("Quit... ");
-				return;
+				System.out.println("Illegal input, please try again");
+			}catch(Exception e) {
+			    System.out.println("Connection failed... ");
 			}
 		}
 	}
@@ -83,7 +88,7 @@ public class AnimalClient {
 			WebTarget target = client.target("http://localhost:8080/zoo/animals/all");
 			List<Map> response = target.request().get(List.class);
 			for(Map animal : response) {
-				System.out.println("Animal: id=" + animal.get("id") + ", name=" + animal.get("name") + ", kind=" + animal.get("kind"));
+				System.out.println("Animal ID: " + animal.get("id") + ", name=" + animal.get("name") + ", kind=" + animal.get("kind"));
 			}
 			return;
 		}
@@ -109,7 +114,7 @@ public class AnimalClient {
 			System.out.println("Animal not found");
 		}
 	}
-	public static void put() {
+	public static void rename() {
 		System.out.println("Please enter the id of the animal you want to rename: ");
 		int id = input.nextInt();
 		System.out.println("Please enter the new name: ");
@@ -122,6 +127,23 @@ public class AnimalClient {
 		} catch (NotFoundException e) {
 			System.out.println("Animal not found");
 		}
+	}
+	public static void replace() {
+	    System.out.println("Please enter the id of the animal you want to replace: ");
+        int id = input.nextInt();
+        System.out.println("Please enter the name of new animal: ");
+        String name = input.next();
+        System.out.println("Please enter the kind of new animal: ");
+        String kind = input.next();
+        Animal animal = new Animal(id, name, kind);
+        WebTarget target = client.target("http://localhost:8080/zoo/animals");
+        try {
+            Animal response = target.request().put(Entity.entity(animal, MediaType.APPLICATION_JSON),Animal.class);
+            System.out.println("Modify Sucessfully.");
+            System.out.println(response);
+        } catch (NotFoundException e) {
+            System.out.println("Animal not found");
+        }
 	}
 	
 }
