@@ -7,21 +7,21 @@ import java.util.Set;
 
 @ApplicationPath("/")
 public class ManageApplication extends Application {
-   private Set<Object> singletons = new HashSet<Object>();
-   private Set<Class<?>> empty = new HashSet<Class<?>>();
+    private Set<Object> singletons = new HashSet<Object>();
+    private Set<Class<?>> empty = new HashSet<Class<?>>();
 
-   public ManageApplication() {
-      singletons.add(new AnimalResource());
-   }
+    public ManageApplication() {
+        singletons.add(new AnimalResource());
+    }
 
-   @Override
-   public Set<Object> getSingletons() {
-      return singletons;
-   }
+    @Override
+    public Set<Object> getSingletons() {
+        return singletons;
+    }
 
-   @Override
-   public Set<Class<?>> getClasses() {
-	   return empty;
-   }
-   
+    @Override
+    public Set<Class<?>> getClasses() {
+        return empty;
+    }
+
 }

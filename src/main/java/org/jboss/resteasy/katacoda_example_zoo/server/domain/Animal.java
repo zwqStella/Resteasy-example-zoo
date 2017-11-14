@@ -1,55 +1,54 @@
 package org.jboss.resteasy.katacoda_example_zoo.server.domain;
 
 public class Animal {
-   private String name;
-   private String kind;
-   private int id;
-   
-   public Animal() {
-	super();
-   }
+    private String name;
+    private String kind;
+    private int id;
 
-   public Animal(String name, String kind) {
-	   this.id = -1;
-	   this.name = name;
-	   this.kind = kind;
-   }
-   
-   public Animal(int id, String name, String kind) {
-    super();
-    this.name = name;
-    this.kind = kind;
-    this.id = id;
-   }
+    public Animal() {
+        super();
+    }
 
-   public String getName() {
-	   return name;
-   }
+    public Animal(String name, String kind) {
+        this.id = -1;
+        this.name = name;
+        this.kind = kind;
+    }
 
-   public void setName(String name) {
-      this.name = name;
-   }
+    public Animal(int id, String name, String kind) {
+        super();
+        this.name = name;
+        this.kind = kind;
+        this.id = id;
+    }
 
-   public String getKind() {
-	   return kind;
-   }
+    public String getName() {
+        return name;
+    }
 
-   public int getId() {
-	   return id;
-   }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   public void setKind(String kind) {
-	this.kind = kind;
-   }
+    public String getKind() {
+        return kind;
+    }
 
-   public void setId(int id) {
-	   this.id = id;
-   }
-   
-   @Override
-   public String toString() {
-       return "Animal ID: "+this.id 
-               + ", name=" + this.name + ", kind=" + this.kind;
-   }
-   
+    public int getId() {
+        return id;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal ID: " + this.id + ", name=" + this.name + ", kind=" + this.kind;
+    }
+
 }
