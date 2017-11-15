@@ -1,6 +1,7 @@
 package org.jboss.resteasy.katacoda_example_zoo.server.domain;
 
 public class Animal {
+
     private String name;
     private String kind;
     private int id;
@@ -49,6 +50,17 @@ public class Animal {
     @Override
     public String toString() {
         return "Animal ID: " + this.id + ", name=" + this.name + ", kind=" + this.kind;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Animal) {
+            Animal animal = (Animal) obj;
+            if (this.id == animal.getId() && this.name.equals(animal.getName()) && this.kind.equals(animal.getKind())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
