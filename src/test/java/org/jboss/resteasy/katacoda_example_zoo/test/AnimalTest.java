@@ -29,14 +29,14 @@ public class AnimalTest {
     }
 
     @Test
-    public void test0Hello() throws Exception {
+    public void testHello() throws Exception {
         String hello = sender.hello();
         System.out.println(hello);
         assertEquals("welcome", hello);
     }
 
     @Test
-    public void test1Post() throws Exception {
+    public void testPost() throws Exception {
         Animal animal = new Animal("Tomie", "fish");
         Animal response = sender.post(animal);
         response.setId(animal.getId());
@@ -44,7 +44,7 @@ public class AnimalTest {
     }
 
     @Test
-    public void test2Get() throws Exception {
+    public void testGet() throws Exception {
         Collection<Animal> response1 = sender.get(1);
         assertEquals(1, response1.size());
         Collection<Animal> response0 = sender.get(0);
@@ -52,21 +52,21 @@ public class AnimalTest {
     }
 
     @Test
-    public void test3Modify() throws Exception {
+    public void testModify() throws Exception {
         Animal response = sender.modify(1, "Kate");
         assertEquals("Kate", response.getName());
     }
 
     @Test
-    public void test4Put() throws Exception {
+    public void testPut() throws Exception {
         Animal animal = new Animal(1, "Luna", "cat");
         Animal response = sender.put(animal);
         assertEquals(animal, response);
     }
 
     @Test
-    public void test5Delete() throws Exception {
-        Animal response = sender.delete(1);
+    public void testDelete() throws Exception {
+        Animal response = sender.delete(2);
         assertNotNull(response);
     }
 }
