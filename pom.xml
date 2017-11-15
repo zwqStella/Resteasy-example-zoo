@@ -79,9 +79,23 @@
 				<version>1.2.1.Final</version>
 				<executions>
 					<execution>
-						<phase>install</phase>
+						<phase>package</phase>
 						<goals>
-							<goal>deploy</goal>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>deploy</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>deploy-only</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>shutdown</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>shutdown</goal>
 						</goals>
 					</execution>
 				</executions>
