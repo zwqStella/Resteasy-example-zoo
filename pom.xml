@@ -56,6 +56,15 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>exec</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
 					<classpathScope>test</classpathScope>
 					<executable>java</executable>
@@ -79,6 +88,7 @@
 				<version>1.2.1.Final</version>
 				<executions>
 					<execution>
+						<id>start</id>
 						<phase>package</phase>
 						<goals>
 							<goal>start</goal>
@@ -93,7 +103,7 @@
 					</execution>
 					<execution>
 						<id>shutdown</id>
-						<phase>post-integration-test</phase>
+						<phase>install</phase>
 						<goals>
 							<goal>shutdown</goal>
 						</goals>
