@@ -2,4 +2,4 @@ language: java
 jdk:
 - oraclejdk8
 script:
- - mvn clean install -P deploy-war,run-tests 
+ - mvn clean install -P test 
