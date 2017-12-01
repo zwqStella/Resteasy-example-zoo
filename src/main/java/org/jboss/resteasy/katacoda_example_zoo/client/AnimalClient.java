@@ -17,20 +17,17 @@ public class AnimalClient {
             System.out.println();
             System.out.println("Menu: ");
             System.out.println("--------------------------------");
-            System.out.println("0. Say Hello");
             System.out.println("1. Add Animal");
             System.out.println("2. Query Animal");
             System.out.println("3. Delete Animal");
             System.out.println("4. Modify Animal name");
             System.out.println("5. Replace or Add Animal on Certain ID");
+            System.out.println("6. My method");
             System.out.println("Enter any other number to quit...");
             try {
                 input = new Scanner(System.in);
                 int choice = input.nextInt();
                 switch (choice) {
-                    case 0:
-                        hello();
-                        break;
                     case 1:
                         addAnimal();
                         break;
@@ -56,11 +53,6 @@ public class AnimalClient {
                 System.out.println("Connection failed... ");
             }
         }
-    }
-
-    public static void hello() {
-        String hello = sender.hello();
-        System.out.println(hello);
     }
 
     public static void addAnimal() {
@@ -124,6 +116,12 @@ public class AnimalClient {
         Animal response = sender.put(animal);
         System.out.println("Replace Sucessfully.");
         System.out.println(response);
+    }
+    
+
+    public static void hello() {
+        String hello = sender.hello();
+        System.out.println(hello);
     }
 
 }

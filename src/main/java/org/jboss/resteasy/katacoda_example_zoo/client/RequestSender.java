@@ -21,11 +21,15 @@ public class RequestSender {
 
     public RequestSender() {
         this.client = ClientBuilder.newClient();
-        this.pathBase = "http://localhost:8080/zoo/animals";
+        // this.client.register(new RequestFilter());
+        // this.client.register(new ResponseFilter());
+        this.pathBase = "http://localhost:8080/";
     }
 
     public RequestSender(String pathBase) {
         this.client = ClientBuilder.newClient();
+        // this.client.register(new RequestFilter());
+        // this.client.register(new ResponseFilter());
         this.pathBase = pathBase;
     }
 
@@ -35,24 +39,25 @@ public class RequestSender {
     }
 
     public String hello() {
-        String hello = client.target(pathBase + "/hello").request().get(String.class);
+        // generate your code here
+        String hello = client.target(pathBase + "zoo").request().get(String.class);
         return hello;
     }
 
     public Animal post(Animal animal) {
-        WebTarget target = client.target(pathBase);
+        WebTarget target = client.target(pathBase + "zoo/animals");
         Animal response = target.request().post(Entity.entity(animal, MediaType.APPLICATION_JSON), Animal.class);
         return response;
     }
 
     public Collection<Animal> get(int id) {
         if (id == 0) {
-            WebTarget target = client.target(pathBase + "/all");
+            WebTarget target = client.target(pathBase + "zoo/animals/all");
             Collection<Animal> collection = target.request().get(new GenericType<Collection<Animal>>() {
             });
             return collection;
         }
-        WebTarget target = client.target(pathBase + "/{id}");
+        WebTarget target = client.target(pathBase + "zoo/animals/{id}");
         Animal response;
         try {
             response = target.resolveTemplate("id", id).request().get(Animal.class);
@@ -65,7 +70,7 @@ public class RequestSender {
     }
 
     public Animal delete(int id) {
-        WebTarget target = client.target(pathBase);
+        WebTarget target = client.target(pathBase + "zoo/animals");
         try {
             Animal response = target.queryParam("id", id).request().delete(Animal.class);
             return response;
@@ -75,7 +80,7 @@ public class RequestSender {
     }
 
     public Animal modify(int id, String name) {
-        WebTarget target = client.target(pathBase);
+        WebTarget target = client.target(pathBase + "zoo/animals");
         try {
             Animal response = target.matrixParam("id", id).matrixParam("name", name).request().put(null, Animal.class);
             return response;
@@ -85,7 +90,7 @@ public class RequestSender {
     }
 
     public Animal put(Animal animal) {
-        WebTarget target = client.target(pathBase);
+        WebTarget target = client.target(pathBase + "zoo/animals");
         Animal response = target.request().put(Entity.entity(animal, MediaType.APPLICATION_JSON), Animal.class);
         return response;
     }

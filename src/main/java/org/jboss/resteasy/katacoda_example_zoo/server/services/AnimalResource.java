@@ -26,13 +26,6 @@ public class AnimalResource {
     private Map<Integer, Animal> animals = new ConcurrentHashMap<Integer, Animal>();
     private AtomicInteger idCounter = new AtomicInteger();
 
-    @GET
-    @Path("hello")
-    @Produces("text/plain")
-    public String sayHello() {
-        return "welcome";
-    }
-
     @POST
     @Consumes("application/json")
     @Produces("application/json")
