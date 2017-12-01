@@ -29,13 +29,6 @@ public class AnimalTest {
     }
 
     @Test
-    public void testHello() throws Exception {
-        String hello = sender.hello();
-        System.out.println(hello);
-        assertEquals("welcome", hello);
-    }
-
-    @Test
     public void testPost() throws Exception {
         Animal animal = new Animal("Tomie", "fish");
         Animal response = sender.post(animal);
