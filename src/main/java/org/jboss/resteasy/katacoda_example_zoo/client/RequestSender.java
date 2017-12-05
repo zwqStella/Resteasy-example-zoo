@@ -38,12 +38,6 @@ public class RequestSender {
         this.client.close();
     }
 
-    public String hello() {
-        // generate your code here
-        String hello = client.target(pathBase + "zoo").request().get(String.class);
-        return hello;
-    }
-
     public Animal post(Animal animal) {
         WebTarget target = client.target(pathBase + "zoo/animals");
         Animal response = target.request().post(Entity.entity(animal, MediaType.APPLICATION_JSON), Animal.class);
@@ -94,5 +88,7 @@ public class RequestSender {
         Animal response = target.request().put(Entity.entity(animal, MediaType.APPLICATION_JSON), Animal.class);
         return response;
     }
+
+    // generate your own method here
 
 }
