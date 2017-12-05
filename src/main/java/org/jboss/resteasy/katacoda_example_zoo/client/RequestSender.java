@@ -89,6 +89,9 @@ public class RequestSender {
         return response;
     }
 
-    // generate your own method here
+    public String hello() {
+        // generate your own method here
+        return null;
+    }
 
 }
