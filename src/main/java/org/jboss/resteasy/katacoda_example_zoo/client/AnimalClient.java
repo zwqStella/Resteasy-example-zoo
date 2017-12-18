@@ -43,6 +43,9 @@ public class AnimalClient {
                     case 5:
                         replace();
                         break;
+                    case 6:
+                        hello();
+                        break;
                     default:
                         System.out.println("Quit... ");
                         return;

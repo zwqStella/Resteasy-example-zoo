@@ -21,15 +21,11 @@ public class RequestSender {
 
     public RequestSender() {
         this.client = ClientBuilder.newClient();
-        // this.client.register(new RequestFilter());
-        // this.client.register(new ResponseFilter());
         this.pathBase = "http://localhost:8080/";
     }
 
     public RequestSender(String pathBase) {
         this.client = ClientBuilder.newClient();
-        // this.client.register(new RequestFilter());
-        // this.client.register(new ResponseFilter());
         this.pathBase = pathBase;
     }
 
