@@ -1,7 +1,11 @@
-package org.jboss.resteasy.katacoda_example_zoo.server.services;
+package org.jboss.resteasy.katacoda_example_zoo.server.applications;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+
+import org.jboss.resteasy.katacoda_example_zoo.server.resources.AnimalResource;
+import org.jboss.resteasy.katacoda_example_zoo.server.resources.HelloResource;
+
 import java.util.HashSet;
 import java.util.Set;
 

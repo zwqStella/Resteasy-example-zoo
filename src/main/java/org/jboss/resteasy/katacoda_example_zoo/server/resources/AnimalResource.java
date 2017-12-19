@@ -1,4 +1,4 @@
-package org.jboss.resteasy.katacoda_example_zoo.server.services;
+package org.jboss.resteasy.katacoda_example_zoo.server.resources;
 
 import java.util.Collection;
 import java.util.Map;
